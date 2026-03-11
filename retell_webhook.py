@@ -206,8 +206,11 @@ class RetellWebhookHandler(BaseHTTPRequestHandler):
 
 def main():
     parser = argparse.ArgumentParser(description="Blueprint Engine — Retell AI Webhook Server")
-    parser.add_argument("--port", type=int, default=8080, help="Port to listen on")
-    parser.add_argument("--output-dir", default="/home/ubuntu/blueprint_engine/output",
+    parser.add_argument("--port", type=int,
+                        default=int(os.environ.get("PORT", 8080)),
+                        help="Port to listen on (overridden by PORT env var)")
+    parser.add_argument("--output-dir",
+                        default=os.environ.get("OUTPUT_DIR", "/data/sessions"),
                         help="Output directory for pipeline artifacts")
     args = parser.parse_args()
 
