@@ -84,7 +84,7 @@ class RetellWebhookHandler(BaseHTTPRequestHandler):
         self._handle_retell_event()
 
     def do_GET(self):
-        if self.path == "/health":
+        if self.path in ("/", "") or self.path == "/health":
             self._send_json(200, {
                 "status": "healthy",
                 "service": "Blueprint Engine — Retell Webhook",
