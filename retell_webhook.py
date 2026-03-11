@@ -210,7 +210,7 @@ def main():
                         default=int(os.environ.get("PORT", 8080)),
                         help="Port to listen on (overridden by PORT env var)")
     parser.add_argument("--output-dir",
-                        default=os.environ.get("OUTPUT_DIR", "/data/sessions"),
+                        default=os.environ.get("OUTPUT_DIR", "/tmp/sessions"),
                         help="Output directory for pipeline artifacts")
     args = parser.parse_args()
 
